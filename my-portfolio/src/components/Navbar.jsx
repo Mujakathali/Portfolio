@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import logo from '../assets/image.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -18,7 +19,7 @@ const Navbar = () => {
     { href: '#about', label: 'About me' },
     { href: '#skills', label: 'Skills' },
     { href: '#projects', label: 'Projects' },
-    { href: '#acheivments', label: ' Achievments' },
+    { href: '#achievements', label: 'Achievements' }, // ✅ fixed typo
   ];
 
   const handleNavClick = (e, href) => {
@@ -32,14 +33,16 @@ const Navbar = () => {
   return (
     <nav className={`navbar-container ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-content">
-        {/* Light strip */}
+        {/* Glowing radial light */}
         <div className="navbar-light-overlay" />
 
+        {/* Left: Logo */}
         <div className="navbar-left">
-          <img src="/logo.png" alt="Avatar" className="navbar-avatar" />
+          <img src={logo} alt="Muja Avatar" className="navbar-avatar" />
           <span className="navbar-name">Muja</span>
         </div>
 
+        {/* Center: Navigation Links */}
         <div className="navbar-nav-center">
           <div className="navbar-nav-items">
             {navItems.map((item) => (
@@ -55,15 +58,16 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Right: Social Icons */}
         <div className="navbar-right">
-          <a href="#" className="navbar-social" aria-label="Instagram">
+          <a href="https://instagram.com" className="navbar-social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
             <FaInstagram />
           </a>
-          <a href="#" className="navbar-social" aria-label="Facebook">
-            <FaFacebook />
+          <a href="https://github.com/Mujakathali" className="navbar-social" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <FaGithub />
           </a>
-          <a href="#" className="navbar-social" aria-label="Twitter">
-            <FaTwitter />
+          <a href="https://www.linkedin.com/in/mujakath-ali-b48125256/" className="navbar-social" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin />
           </a>
         </div>
       </div>
