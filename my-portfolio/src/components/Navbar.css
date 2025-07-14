@@ -1,61 +1,41 @@
-/* Light glow overlay behind navbar center */
-.navbar-light-overlay {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 90px; /* reduced height */
-    transform: translateY(-50%);
-    background: radial-gradient(
-      ellipse at center,
-      rgba(255, 255, 255, 0.12),
-      rgba(255, 255, 255, 0) 70%
-    );
-    opacity: 0.25;
-    pointer-events: none;
-    z-index: 0;
-  }
-  
-  /* Fixed Navbar */
-  .navbar-container {
+/* ============ NAVBAR ============ */
+.navbar-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px; /* slightly smaller than before (was 100px, then 60px) */
+    height: 70px;
     z-index: 1000;
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 1rem;
     background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
     box-shadow: 0 0 25px rgba(155, 89, 182, 0.25);
   }
   
-  /* Main navbar content block */
   .navbar-content {
     max-width: 1400px;
-    height: 100%;
     margin: 0 auto;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
     z-index: 1;
+    padding: 0 1rem;
   }
   
-  /* Left: Logo + Name */
+  /* LEFT (Logo + Name) */
   .navbar-left {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    position: absolute;
-    top: 50%;
-    left: 2rem;
-    transform: translateY(-50%);
+    gap: 0.5rem;
+    flex-shrink: 0;
   }
   
   .navbar-avatar {
     width: 2.4rem;
     height: 2.4rem;
     border-radius: 9999px;
+    object-fit: cover;
   }
   
   .navbar-name {
@@ -64,36 +44,33 @@
     color: #ffffff;
   }
   
-  /* Center Nav Items */
+  /* CENTER (Nav Items) */
   .navbar-nav-center {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
+    z-index: 2;
   }
   
   .navbar-nav-items {
     display: flex;
     gap: 2rem;
-    padding: 0.75rem 3rem;
+    padding: 0.75rem 2.5rem;
     font-size: 1rem;
-    background: rgba(0, 0, 0, 0.3); /* dark transparent background */
+    border: 1px solid rgba(112, 66, 248, 0.38);
+    background: rgba(3, 0, 20, 0.37);
     backdrop-filter: blur(18px);
     border-radius: 9999px;
-    box-shadow: 0 0 30px rgba(180, 100, 255, 0.3);
+    box-shadow: 0 0 30px rgba(180, 100, 255, 0.2);
     position: relative;
+    color: #e5e7eb;
   }
-  
-  
   
   .navbar-nav-items::before {
     content: '';
     position: absolute;
-    top: -30px; /* reduced size */
+    top: -30px;
     left: 0;
     width: 100%;
     height: 200%;
@@ -131,15 +108,12 @@
     width: 100%;
   }
   
-  /* Right: Social Icons */
+  /* RIGHT (Social Icons) */
   .navbar-right {
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    position: absolute;
-    top: 50%;
-    right: 2rem;
-    transform: translateY(-50%);
+    flex-shrink: 0;
   }
   
   .navbar-social {
@@ -153,5 +127,52 @@
   .navbar-social:hover {
     color: #a78bfa;
     transform: scale(1.1);
+  }
+  
+  /* Light Glow Behind Nav Center */
+  .navbar-light-overlay {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    transform: translateY(-50%);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0) 70%
+    );
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .navbar-container {
+      height: auto;
+      padding: 1rem;
+    }
+  
+    .navbar-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+  
+    .navbar-nav-items {
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+    }
+  
+    .navbar-left .navbar-name {
+      font-size: 0.9rem;
+    }
+  
+    .navbar-social {
+      font-size: 1rem;
+    }
   }
   
