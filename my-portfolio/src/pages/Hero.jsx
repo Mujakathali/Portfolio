@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import heroBg from '../assets/hero-bg.svg';
+import StarBackground from  '../components/Starb';
 
 const Hero = () => {
   const [slid, setSlid] = useState(false);
@@ -14,7 +15,7 @@ const Hero = () => {
   };
 
   return (
-    <div style={{
+    <div id="hero" style={{
       position: 'relative',
       width: '100%',
       height: '650px',
@@ -24,7 +25,8 @@ const Hero = () => {
       justifyContent: 'flex-start',
       overflow: 'hidden',
     }}>
-      {/* Text Content */}
+      <StarBackground/>
+      
       <div style={{
         zIndex: 1,
         color: 'white',
@@ -34,7 +36,7 @@ const Hero = () => {
         marginLeft: '240px',
         maxWidth: '600px'
       }}>
-        Mujakath Ali 🌌
+        Hey I am Mujakath
         <p style={{
           fontSize: '1rem',
           fontWeight: 'normal',
@@ -42,13 +44,7 @@ const Hero = () => {
           maxWidth: 500,
           lineHeight: '1.7'
         }}>
-          Bridging <strong>human memory</strong> and <strong>machine intelligence</strong>, I’m on a mission to craft technology that doesn't just respond — but remembers, reflects, and evolves.
-          <br /><br />
-          With a passion rooted in AI and a flair for React-driven design, I architect intuitive systems that speak, see, and understand.
-          <br /><br />
-          I’m not just building apps — I’m building <em>second brains</em>, <em>empathic agents</em>, and tools that make you feel like the future is now.
-          <br /><br />
-          ⚡ Let’s turn ideas into experiences.
+          Empowering Ideas Through Code & Intelligence.⚡ Let’s turn ideas into experiences.
         </p>
 
         {/* 🔥 Animated Slide Button */}

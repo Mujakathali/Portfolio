@@ -37,7 +37,12 @@ const Navbar = () => {
         <div className="navbar-light-overlay" />
 
         {/* Left: Logo */}
-        <div className="navbar-left">
+        <div className="navbar-left" style={{ cursor: 'pointer' }} onClick={() => {
+          const hero = document.getElementById('hero');
+          if (hero) {
+            hero.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}>
           <img src={logo} alt="Muja Avatar" className="navbar-avatar" />
           <span className="navbar-name">Muja</span>
         </div>

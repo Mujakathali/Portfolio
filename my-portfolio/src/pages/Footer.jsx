@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import StarBackground from '../components/Starb';
 
 const Footer = () => {
   return (
@@ -11,7 +12,10 @@ const Footer = () => {
       justifyContent: 'flex-start',
       paddingTop: '100px',
       overflow: 'hidden',
-    }}>Footer</div>
+    }}>
+      <StarBackground />
+      Footer
+    </div>
   )
 }
 

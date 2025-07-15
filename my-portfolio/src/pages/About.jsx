@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import heroBg from '../assets/hero-bg.svg';
+import StarBackground from '../components/Starb';
 
 const About = () => {
   const [slid, setSlid] = useState(false);
@@ -14,17 +14,20 @@ const About = () => {
   };
 
   return (
-    <div style={{
-      position: 'relative',
-      width: '100%',
-      height: '640px',
-      paddingTop: '98px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'flex-start',
-      overflow: 'hidden',
-    }}>
-
+    <div
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '640px',
+        paddingTop: '98px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        overflow: 'hidden',
+      }}
+    >
+      <StarBackground />
+      {/* ...rest of About page... */}
     </div>
   );
 };

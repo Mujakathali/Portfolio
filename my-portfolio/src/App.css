@@ -5,6 +5,36 @@ body,
   padding: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(15, 12, 41, 0.85); /* matches your navbar theme */
+  background-color: rgba(15, 12, 41, 0.85);
+  /* matches your navbar theme */
   overflow-x: hidden;
+}
+
+/* Fixed background layer */
+.star-background-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Ensure the star canvas fills the background and is visible */
+.star-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Optional: Main content wrapper (in case needed) */
+.app-content {
+  position: relative;
+  z-index: 1;
 }

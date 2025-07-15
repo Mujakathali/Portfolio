@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import StarBackground from '../components/Starb';
 
 const Skills = () => {
   return (
@@ -11,7 +12,10 @@ const Skills = () => {
       justifyContent: 'flex-start',
       paddingTop: '100px',
       overflow: 'hidden',
-    }}>Skills</div>
+    }}>
+      <StarBackground />
+      Skills
+    </div>
   )
 }
 
