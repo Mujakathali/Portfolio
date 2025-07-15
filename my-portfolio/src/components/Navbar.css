@@ -273,83 +273,130 @@
 /* === Mobile View Enhancements === */
 @media (max-width: 768px) {
     .navbar-container {
-      padding: 0.75rem 1rem;
-      height: 80px;
+        padding: 0.75rem 1rem;
+        height: 80px;
     }
-  
+
     .navbar-content {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .navbar-nav-center {
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.5rem;
+        margin-left: 1rem;
+    }
+
+    .navbar-nav-items {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0.5rem 1.2rem;
+        gap: 1rem;
+        font-size: 0.85rem;
+        box-shadow: 0 0 18px rgba(180, 100, 255, 0.15);
+    }
+
+    .navbar-left {
+        width: 100%;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+        .navbar-left {
+            width: 100%;
+            justify-content: flex-start;
+            padding-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .navbar-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-top: 0.4rem;
+            margin-left: -1rem;
+        }
+
+        .navbar-name {
+            font-size: 1rem;
+        }
+
+        .navbar-right {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 0.5rem;
+            position: relative;
+            /* Important: allow top adjustment */
+            top: -50px;
+            /* 👈 Move it up by 30px */
+            margin-left: 230px;
+        }
+
+        .navbar-social {
+            font-size: 1.1rem;
+        }
+
+        .nav-link::after {
+            bottom: -0.2rem;
+        }
+    }
+
+    /* HAMBURGER ICON STYLING BELOW 540px */
+    /* HAMBURGER ICON STYLING BELOW 540px */
+@media (max-width: 540px) {
+    .hamburger-icon {
+      display: block;
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      z-index: 1001;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: white;
     }
   
     .navbar-nav-center {
-      width: 100%;
-      justify-content: center;
-      margin-top: 0.5rem;
-      margin-left: 1rem;
-    }
-  
-    .navbar-nav-items {
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 0.5rem 1.2rem;
-      gap: 1rem;
-      font-size: 0.85rem;
-      box-shadow: 0 0 18px rgba(180, 100, 255, 0.15);
-    }
-  
-    .navbar-left {
-      width: 100%;
-      justify-content: center;
-    }
-  
-    @media (max-width: 768px) {
-        /* ... existing styles ... */
-      
-        .navbar-left {
-          width: 100%;
-          justify-content: flex-start; /* move avatar to the left */
-          padding-left: -0.5rem;         /* optional: fine-tune spacing */
-          margin-top: 0.5rem;          /* move it slightly upward */
-        }
-      
-        .navbar-avatar {
-          width: 2.5rem;
-          height: 2.5rem;
-          margin-top: 0.4rem;    
-          margin-left: -1.5rem;       /* smaller top margin */
-        }
-      
-        .navbar-name {
-          font-size: 1rem;
-        }
-      
-        /* ... keep rest as is ... */
-      }
-      
-  
-    .navbar-name {
-      font-size: 1rem;
+      display: none;
     }
   
     .navbar-right {
-        display: flex;
-        flex-direction: column;   /* 👈 Make it vertical */
-        align-items: center;      /* 👈 Center horizontally */
-        justify-content: center;
-        width: 100%;
-        gap: 0.7rem;                 /* 👈 Space between icons */
-        margin-top: -80px;        /* 👈 Adjust vertical position */
-      margin-left: 200px;
+      display: none;
     }
   
-    .navbar-social {
-      font-size: 1.1rem;
+    .mobile-menu {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 90%;
+      margin: 0 5%;
+      padding: 1rem 2rem;
+      background: rgba(3, 0, 20, 0.37);
+      border: 1px solid rgba(112, 66, 248, 0.38);
+      backdrop-filter: blur(18px);
+      border-radius: 1rem;
+      box-shadow: 0 0 30px rgba(180, 100, 255, 0.2);
+      z-index: 999;
     }
   
-    .nav-link::after {
-      bottom: -0.2rem;
+    .mobile-nav-link {
+      color: #e5e7eb;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      margin: 0.5rem 0;
+      transition: color 0.3s;
+    }
+  
+    .mobile-nav-link:hover {
+      color: #a78bfa;
     }
   }
   
