@@ -8,42 +8,42 @@
     background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
     z-index: 1000;
     box-shadow: 0 0 20px rgba(128, 90, 213, 0.3);
-  }
-  
-  .navbar-content {
+}
+
+.navbar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
     max-width: 1400px;
     margin: 0 auto;
-  }
-  
-  .navbar-left {
+}
+
+.navbar-left {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-  }
-  
-  .navbar-avatar {
+}
+
+.navbar-avatar {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 9999px;
-  }
-  
-  .navbar-name {
+}
+
+.navbar-name {
     color: white;
     font-weight: bold;
     font-size: 1.2rem;
-  }
-  
-  .navbar-nav-center {
+}
+
+.navbar-nav-center {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-  }
-  
-  .navbar-nav-items {
+}
+
+.navbar-nav-items {
     display: flex;
     gap: 2rem;
     padding: 0.75rem 2.5rem;
@@ -52,37 +52,37 @@
     border-radius: 9999px;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 25px rgba(180, 100, 255, 0.2);
-  }
-  
-  .nav-link {
+}
+
+.nav-link {
     color: white;
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
     transition: color 0.3s;
-  }
-  
-  .nav-link:hover {
+}
+
+.nav-link:hover {
     color: #a78bfa;
-  }
-  
-  .navbar-right {
+}
+
+.navbar-right {
     display: flex;
     gap: 1rem;
-  }
-  
-  .navbar-social {
+}
+
+.navbar-social {
     font-size: 1.25rem;
     color: white;
     transition: transform 0.3s, color 0.3s;
-  }
-  
-  .navbar-social:hover {
+}
+
+.navbar-social:hover {
     color: #a78bfa;
     transform: scale(1.1);
-  }
-  
-  .navbar-light-overlay {
+}
+
+.navbar-light-overlay {
     position: absolute;
     top: 50%;
     left: 0;
@@ -93,8 +93,8 @@
     opacity: 0.25;
     pointer-events: none;
     z-index: 0;
-  }
-  
+}
+
 .navbar-container {
     position: fixed;
     top: 0;
@@ -132,6 +132,7 @@
     height: 3.5rem;
     border-radius: 9999px;
     object-fit: cover;
+    margin-top: 0.5rem;
 }
 
 .navbar-name {
