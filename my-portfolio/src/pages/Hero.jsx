@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import heroBg from '../assets/hero-bg.svg';
-import StarBackground from  '../components/Starb';
+import StarBackground from '../components/Starb';
 
 const Hero = () => {
   const [slid, setSlid] = useState(false);
@@ -18,37 +18,53 @@ const Hero = () => {
     <div id="hero" style={{
       position: 'relative',
       width: '100%',
-      height: '650px',
+      minHeight: '650px',
       paddingTop: '100px',
       display: 'flex',
+      flexWrap: 'wrap',
       alignItems: 'center',
-      justifyContent: 'flex-start',
+      justifyContent: 'center',
+      gap: '2rem',
       overflow: 'hidden',
     }}>
-      <StarBackground/>
-      
-      <div style={{
-        zIndex: 1,
-        color: 'white',
-        fontSize: '2rem',
-        fontWeight: 'bold',
-        textShadow: '0 2px 8px #0008',
-        marginLeft: '240px',
-        maxWidth: '600px'
-      }}>
-        Hey I am Mujakath
+      <StarBackground />
+
+      {/* TEXT SECTION */}
+      <div
+        style={{
+          zIndex: 1,
+          color: 'white',
+          fontSize: '2.8rem',
+          fontWeight: 'bold',
+          textShadow: '0 2px 8px #0008',
+          maxWidth: '700px',
+          flex: '1 1 300px',
+          padding: '0 3rem 0 4rem', // Move content to the right
+        }}
+      >
+        <div className="hero-badge">✨Machine Learning Engineer</div>
+        <div style={{
+          marginTop: '1.2rem',
+          fontSize: '2.3rem',
+          fontWeight: 'bold',
+          lineHeight: '1.2'
+        }}>
+          <span className="gradient-word">Hey</span><br />
+          I am <span className="gradient-word">Mujakath</span>
+        </div>
         <p style={{
-          fontSize: '1rem',
+          fontSize: '1.1rem',
           fontWeight: 'normal',
-          marginTop: 16,
-          maxWidth: 500,
-          lineHeight: '1.7'
+          marginTop: 20,
+          maxWidth: 540,
+          lineHeight: '1.8'
         }}>
           Empowering Ideas Through Code & Intelligence.⚡ Let’s turn ideas into experiences.
         </p>
 
-        {/* 🔥 Animated Slide Button */}
+        {/* SLIDE BUTTON */}
         <div
+          className="slide-button"
           onClick={handleSlideClick}
           style={{
             marginTop: '32px',
@@ -65,7 +81,6 @@ const Hero = () => {
             boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)',
           }}
         >
-          {/* Animated Gradient Text */}
           <span
             className="gradient-shimmer-text"
             style={{ paddingLeft: '55px' }}
@@ -73,7 +88,6 @@ const Hero = () => {
             Slide to Explore 🚀
           </span>
 
-          {/* Glowing Background Trail */}
           <div style={{
             position: 'absolute',
             inset: 0,
@@ -85,7 +99,6 @@ const Hero = () => {
             borderRadius: 'inherit',
           }} />
 
-          {/* Sliding Thumb */}
           <div style={{
             width: '44px',
             height: '44px',
@@ -101,23 +114,22 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Background Image */}
+      {/* IMAGE SECTION */}
       <img
         src={heroBg}
         alt="Background"
         style={{
-          position: 'absolute',
-          top: '88px',
-          right: 0,
-          width: '590px',
-          height: '590px',
+          width: '620px',
+          height: '620px',
           objectFit: 'contain',
           opacity: 0.8,
           zIndex: 0,
+          flex: '1 1 280px',
+          padding: '0 1rem',
         }}
       />
 
-      {/* 🔮 CSS Keyframes */}
+      {/* ANIMATIONS */}
       <style>
         {`
           @keyframes glowMove {
@@ -127,12 +139,8 @@ const Hero = () => {
           }
 
           @keyframes shimmer {
-            0% {
-              background-position: -200% center;
-            }
-            100% {
-              background-position: 200% center;
-            }
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
           }
 
           .gradient-shimmer-text {
@@ -148,6 +156,95 @@ const Hero = () => {
             color: transparent;
             -webkit-text-fill-color: transparent;
             animation: shimmer 2.5s infinite linear;
+          }
+
+          .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 9999px;
+            color: white;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+          }
+
+          .gradient-word {
+            background: linear-gradient(to right, #c084fc, #60a5fa, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+          }
+
+          @media (max-width: 768px) {
+            #hero {
+              flex-direction: column;
+              text-align: center;
+              padding-top: 80px;
+            }
+
+            #hero img {
+              width: 360px !important;
+              height: auto !important;
+              margin-top: 1.5rem;
+            }
+            #hero > div {
+              margin: 0 auto !important;
+              padding-left: 0 !important;
+              padding-right: 0 !important;
+            }
+            .slide-button {
+              margin: 0 auto !important;
+            }
+
+            .gradient-shimmer-text {
+              font-size: 0.85rem;
+            }
+
+            .hero-badge {
+              font-size: 0.8rem;
+            }
+          }
+
+          @media (max-width: 480px) {
+            #hero {
+              padding-top: 60px;
+            }
+
+            .hero-badge {
+              font-size: 0.75rem;
+            }
+
+            .gradient-word {
+              font-size: 2rem;
+            }
+
+            #hero p {
+              font-size: 0.95rem;
+            }
+
+            #hero img {
+              width: 300px !important;
+            }
+               .slide-button {
+        width: 200px !important;
+        height: 46px !important;
+        
+      }
+
+      .slide-button .gradient-shimmer-text {
+        font-size: 0.8rem !important;
+        padding-left: 25px !important;
+      }
+
+      .slide-button .slider-thumb {
+        width: 40px !important;
+        height: 40px !important;
+        top: 3px !important;
+        left: 3px !important;
+      }
           }
         `}
       </style>
