@@ -20,6 +20,7 @@ const Hero = () => {
       width: '100%',
       minHeight: '650px',
       paddingTop: '100px',
+      marginTop: '30px',
       display: 'flex',
       flexWrap: 'wrap',
       alignItems: 'center',
@@ -39,7 +40,7 @@ const Hero = () => {
           textShadow: '0 2px 8px #0008',
           maxWidth: '700px',
           flex: '1 1 300px',
-          padding: '0 3rem 0 4rem', // Move content to the right
+          padding: '110px 3rem 0 4.5rem',
         }}
       >
         <div className="hero-badge">✨Machine Learning Engineer</div>
@@ -119,13 +120,14 @@ const Hero = () => {
         src={heroBg}
         alt="Background"
         style={{
-          width: '620px',
-          height: '620px',
+          width: '600px',
+          height: '600px',
           objectFit: 'contain',
           opacity: 0.8,
           zIndex: 0,
           flex: '1 1 280px',
-          padding: '0 1rem',
+          top: '30px',
+          padding: '0 2rem',
         }}
       />
 
@@ -178,11 +180,28 @@ const Hero = () => {
             display: inline-block;
           }
 
+          @media (max-width: 1200px) and (min-width: 769px) {
+            #hero {
+              flex-wrap: nowrap !important;
+              justify-content: space-around !important;
+              padding-top: 80px !important;
+            }
+
+            #hero > div {
+              padding: 2rem !important;
+            }
+
+            #hero img {
+              width: 480px !important;
+              height: auto !important;
+            }
+          }
+
           @media (max-width: 768px) {
             #hero {
               flex-direction: column;
               text-align: center;
-              padding-top: 80px;
+              bottom: 120px;
             }
 
             #hero img {
@@ -190,13 +209,15 @@ const Hero = () => {
               height: auto !important;
               margin-top: 1.5rem;
             }
+
             #hero > div {
               margin: 0 auto !important;
               padding-left: 0 !important;
               padding-right: 0 !important;
             }
+
             .slide-button {
-              margin: 0 auto !important;
+              margin: 48px auto 0 auto !important;
             }
 
             .gradient-shimmer-text {
@@ -210,7 +231,7 @@ const Hero = () => {
 
           @media (max-width: 480px) {
             #hero {
-              padding-top: 60px;
+              bottom: 120px;
             }
 
             .hero-badge {
@@ -226,25 +247,32 @@ const Hero = () => {
             }
 
             #hero img {
-              width: 300px !important;
+              width: 450px !important;
             }
-               .slide-button {
-        width: 200px !important;
-        height: 46px !important;
-        
-      }
 
-      .slide-button .gradient-shimmer-text {
-        font-size: 0.8rem !important;
-        padding-left: 25px !important;
-      }
+            .slide-button {
+              width: 200px !important;
+              height: 46px !important;
+            }
 
-      .slide-button .slider-thumb {
-        width: 40px !important;
-        height: 40px !important;
-        top: 3px !important;
-        left: 3px !important;
-      }
+            .slide-button .gradient-shimmer-text {
+              font-size: 0.8rem !important;
+              padding-left: 60px !important;
+            }
+
+            .slide-button .slider-thumb {
+              width: 40px !important;
+              height: 40px !important;
+              top: 3px !important;
+              left: 3px !important;
+            }
+          }
+
+          @media (min-width: 1400px) {
+            #hero {
+              padding-top: 20px !important;
+              align-items: flex-start !important;
+            }
           }
         `}
       </style>
