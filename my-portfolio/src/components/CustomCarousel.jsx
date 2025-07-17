@@ -72,7 +72,7 @@ const CustomCarousel = () => {
             <h2 className="carousel-heading">🚀 My <span className="gradient-word">Featured</span> Projects</h2>
             <div
                 className="carousel-container"
-               
+              
             >
                 <div
                     className="carousel-3d"

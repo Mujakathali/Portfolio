@@ -38,3 +38,47 @@ body,
   position: relative;
   z-index: 1;
 }
+
+.about-hero-mujakath {
+  opacity: 0;
+  transform: translateX(-100vw);
+  transition: opacity 0.7s, transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.about-hero-mujakath.slide-in-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-hero-ali {
+  opacity: 0;
+  transform: translateX(100vw);
+  transition: opacity 0.7s, transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.about-hero-ali.slide-in-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-hero-profile-img {
+  opacity: 0;
+  transform: translate(-50%, 100px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.about-hero-profile-img.pop-up {
+  animation: popUp 1.2s ease-out forwards;
+}
+
+@keyframes popUp {
+  0% {
+    transform: translate(-50%, 100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}

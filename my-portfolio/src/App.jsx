@@ -12,8 +12,8 @@ import Skills from './pages/Skills';
 function App() {
   return (
     <>
-      
-    
+
+
 
       {/* Main Content */}
       <div className="app-content">
