@@ -1,47 +1,47 @@
 import React, { useEffect, useState } from 'react';
+import p1 from '../assets/proj1.png';
+import p2 from '../assets/proj2.webp';
+import p3 from '../assets/proj3.svg';
+import p4 from '../assets/proj4.webp';
 import './CustomCarousel.css';
 
 const projects = [
     {
         id: 1,
-        title: 'NeuroLens',
-        description: 'AI-powered memory assistant with smart glasses and reflective agent.',
-        github: 'https://github.com/Mujakathali/NeuroLens',
-        live: 'https://neurolens.vercel.app',
-        image: 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg',
+        title: 'Emotion Detection',
+        description: 'Emotion Detection AI using CNNs: Developed a real-time emotion recognition system using deep learning with MobileNetV2 and InceptionV3 for accurate facial emotion classification. Enables impactful use in mental health, surveillance, and interactive AI systems.',
+        github: 'https://github.com/Mujakathali/DLV-Project',
+        image: p1
     },
     {
         id: 2,
-        title: 'MemoryGraph',
-        description: 'Visual Knowledge Graph + Memory Timeline for personal moments.',
-        github: 'https://github.com/Mujakathali/MemoryGraph',
-        live: 'https://memorygraph.vercel.app',
-        image: 'https://images.pexels.com/photos/1470502/pexels-photo-1470502.jpeg',
+        title: 'Help-Desk Chatbot(EdVora)',
+        description: 'College Helpdesk Chatbot (Jan 2025 – Mar 2025): Built an AI chatbot using LLaMA 2 7B, React.js, and Flask to instantly answer college-related queries. Streamlined access to course details, schedules, and campus info through a user-friendly chat interface.',
+        github: 'https://github.com/Mujakathali/ChatBot-EdVora',
+        image: p2
     },
     {
         id: 3,
-        title: 'AI Chatbot',
-        description: 'Chatbot using GPT-4 API, built with React & Node.js.',
-        github: 'https://github.com/Mujakathali/AI-Chatbot',
-        live: '',
-        image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80',
+        title: 'Task Management System',
+        description: 'Task Management System – STINT (May 2024 – Jul 2024): Designed a task allocation and tracking system using React, Spring Boot, and SQL Workbench to enhance staff productivity. Delivered an intuitive interface for seamless coordination tailored to institutional workflows.',
+        github: 'https://github.com/Mujakathali/Ski-Stint',
+        live: 'https://ski-stint-adminpage.netlify.app/',
+        image: p3
     },
     {
         id: 4,
-        title: 'Portfolio Site',
-        description: 'Interactive portfolio made with Lightswind UI & Framer Motion.',
+        title: 'Lunar Crater Image Enhancement',
+        description: 'Lunar Crater Image Enhancement (Feb 2023 – May 2023): Developed a deep learning pipeline using GANs and OpenCV to enhance PSR region images of lunar craters. Improved SNR for better visibility, aiding geomorphological analysis and lunar mission planning.',
         github: 'https://github.com/Mujakathali/portfolio',
-        live: 'https://mujakathali.vercel.app',
-        image: 'https://images.pexels.com/photos/29049/pexels-photo.jpg',
+        image: p4
     },
     {
         id: 5,
         title: 'Second Brain Assistant',
-        description: 'Voice-enabled intelligent agent storing lifelong memories.',
-        github: 'https://github.com/Mujakathali/second-brain',
+        description: 'Voice-enabled intelligent agent storing lifelong memories.(SOONER)',
         live: '',
-        image: 'https://images.pexels.com/photos/1868676/pexels-photo-1868676.jpeg',
-    },
+        image: 'https://images.pexels.com/photos/1868676/pexels-photo-1868676.jpeg'
+    }
 ];
 
 const CustomCarousel = () => {
@@ -69,8 +69,11 @@ const CustomCarousel = () => {
 
     return (
         <div className="carousel-wrapper" id="projects" style={{ paddingTop: '100px' }}>
-            <h2 className="carousel-heading">🚀 My Featured Projects</h2>
-            <div className="carousel-container">
+            <h2 className="carousel-heading">🚀 My <span className="gradient-word">Featured</span> Projects</h2>
+            <div
+                className="carousel-container"
+               
+            >
                 <div
                     className="carousel-3d"
                     style={{
