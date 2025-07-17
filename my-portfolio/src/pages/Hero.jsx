@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import heroBg from '../assets/hero-bg.svg';
 import StarBackground from '../components/Starb';
 
 const Hero = () => {
   const [slid, setSlid] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger entrance animation after mount
+    setTimeout(() => setIsVisible(true), 100);
+  }, []);
 
   const handleSlideClick = () => {
     setSlid(true);
-    const target = document.getElementById('projects');
+    const target = document.getElementById('about');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
     }
@@ -43,8 +49,10 @@ const Hero = () => {
           padding: '110px 3rem 0 4.5rem',
         }}
       >
-        <div className="hero-badge">✨Machine Learning Engineer</div>
-        <div style={{
+        {/* Badge */}
+        <div className={`hero-badge animated-badge${isVisible ? ' show' : ''}`}>✨Machine Learning Engineer</div>
+        {/* Heading */}
+        <div className={`animated-heading${isVisible ? ' show' : ''}`} style={{
           marginTop: '1.2rem',
           fontSize: '2.3rem',
           fontWeight: 'bold',
@@ -53,7 +61,8 @@ const Hero = () => {
           <span className="gradient-word">Hey</span><br />
           I am <span className="gradient-word">Mujakath</span>
         </div>
-        <p style={{
+        {/* Paragraph */}
+        <p className={`animated-paragraph${isVisible ? ' show' : ''}`} style={{
           fontSize: '1.1rem',
           fontWeight: 'normal',
           marginTop: 20,
@@ -62,10 +71,9 @@ const Hero = () => {
         }}>
           Empowering Ideas Through Code & Intelligence.⚡ Let’s turn ideas into experiences.
         </p>
-
         {/* SLIDE BUTTON */}
         <div
-          className="slide-button"
+          className={`slide-button animated-button${isVisible ? ' show' : ''}`}
           onClick={handleSlideClick}
           style={{
             marginTop: '32px',
@@ -119,6 +127,7 @@ const Hero = () => {
       <img
         src={heroBg}
         alt="Background"
+        className={`animated-image${isVisible ? ' show' : ''}`}
         style={{
           width: '600px',
           height: '600px',
@@ -164,13 +173,14 @@ const Hero = () => {
             display: inline-block;
             padding: 0.4rem 1rem;
             font-size: 0.85rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1.5px solid #a78bfa;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 9999px;
             color: white;
             margin-bottom: 2rem;
             font-weight: 500;
             backdrop-filter: blur(10px);
+            box-shadow: 0 0 8px 0 #a78bfa44;
           }
 
           .gradient-word {
@@ -178,6 +188,69 @@ const Hero = () => {
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
+          }
+
+          .hero-hidden {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+          }
+          .hero-visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+          }
+
+          /* Staggered entrance animations */
+          .animated-badge {
+            opacity: 0;
+            transform: translateY(-40px);
+            transition: opacity 0.45s cubic-bezier(0.4,0,0.2,1), transform 0.45s cubic-bezier(0.4,0,0.2,1);
+            transition-delay: 0.05s;
+          }
+          .animated-badge.show {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          .animated-heading {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.45s cubic-bezier(0.4,0,0.2,1), transform 0.45s cubic-bezier(0.4,0,0.2,1);
+            transition-delay: 0.15s;
+          }
+          .animated-heading.show {
+            opacity: 1;
+            transform: translateX(0);
+          }
+          .animated-paragraph {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.45s cubic-bezier(0.4,0,0.2,1), transform 0.45s cubic-bezier(0.4,0,0.2,1);
+            transition-delay: 0.28s;
+          }
+          .animated-paragraph.show {
+            opacity: 1;
+            transform: translateX(0);
+          }
+          .animated-button {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.45s cubic-bezier(0.4,0,0.2,1), transform 0.45s cubic-bezier(0.4,0,0.2,1);
+            transition-delay: 0.38s;
+          }
+          .animated-button.show {
+            opacity: 1;
+            transform: translateX(0);
+          }
+          .animated-image {
+            opacity: 0 !important;
+            transform: translateX(200px) !important;
+            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+            transition-delay: 0.48s;
+          }
+          .animated-image.show {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
           }
 
           @media (max-width: 1200px) and (min-width: 769px) {
