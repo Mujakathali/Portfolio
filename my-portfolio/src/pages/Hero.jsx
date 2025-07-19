@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import heroBg from '../assets/hero-bg.svg';
 import StarBackground from '../components/Starb';
 
 const Hero = () => {
-  const [slid, setSlid] = useState(false);
+  const [sliderX, setSliderX] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const sliderRef = useRef(null);
+  const thumbRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -11,14 +14,62 @@ const Hero = () => {
     setTimeout(() => setIsVisible(true), 100);
   }, []);
 
-  const handleSlideClick = () => {
-    setSlid(true);
-    const target = document.getElementById('about');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-    setTimeout(() => setSlid(false), 1000);
+  // Drag logic for slider
+  const SLIDER_WIDTH = 240 - 44 - 8; // button width - thumb width - padding
+
+  const handleDragStart = (e) => {
+    setDragging(true);
+    e.preventDefault();
   };
+
+  const handleDrag = (e) => {
+    if (!dragging) return;
+    let clientX;
+    if (e.type.startsWith('touch')) {
+      clientX = e.touches[0].clientX;
+    } else {
+      clientX = e.clientX;
+    }
+    const sliderRect = sliderRef.current.getBoundingClientRect();
+    let x = clientX - sliderRect.left - 22; // 22 = thumb radius
+    x = Math.max(0, Math.min(x, SLIDER_WIDTH));
+    setSliderX(x);
+  };
+
+  const handleDragEnd = () => {
+    if (!dragging) return;
+    setDragging(false);
+    if (sliderX > SLIDER_WIDTH * 0.85) {
+      // Trigger scroll
+      const target = document.getElementById('about');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+      setSliderX(0);
+    } else {
+      setSliderX(0);
+    }
+  };
+
+  useEffect(() => {
+    if (dragging) {
+      window.addEventListener('mousemove', handleDrag);
+      window.addEventListener('touchmove', handleDrag);
+      window.addEventListener('mouseup', handleDragEnd);
+      window.addEventListener('touchend', handleDragEnd);
+    } else {
+      window.removeEventListener('mousemove', handleDrag);
+      window.removeEventListener('touchmove', handleDrag);
+      window.removeEventListener('mouseup', handleDragEnd);
+      window.removeEventListener('touchend', handleDragEnd);
+    }
+    return () => {
+      window.removeEventListener('mousemove', handleDrag);
+      window.removeEventListener('touchmove', handleDrag);
+      window.removeEventListener('mouseup', handleDragEnd);
+      window.removeEventListener('touchend', handleDragEnd);
+    };
+  }, [dragging, sliderX]);
 
   return (
     <div id="hero" style={{
@@ -74,7 +125,7 @@ const Hero = () => {
         {/* SLIDE BUTTON */}
         <div
           className={`slide-button animated-button${isVisible ? ' show' : ''}`}
-          onClick={handleSlideClick}
+          ref={sliderRef}
           style={{
             marginTop: '32px',
             width: '240px',
@@ -84,15 +135,16 @@ const Hero = () => {
             padding: '4px',
             display: 'flex',
             alignItems: 'center',
-            cursor: 'pointer',
+            cursor: dragging ? 'grabbing' : 'pointer',
             position: 'relative',
             overflow: 'hidden',
             boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)',
+            userSelect: 'none',
           }}
         >
           <span
             className="gradient-shimmer-text"
-            style={{ paddingLeft: '55px' }}
+            style={{ paddingLeft: '55px', pointerEvents: 'none' }}
           >
             Slide to Explore 🚀
           </span>
@@ -108,18 +160,25 @@ const Hero = () => {
             borderRadius: 'inherit',
           }} />
 
-          <div style={{
-            width: '44px',
-            height: '44px',
-            borderRadius: '50%',
-            background: '#fff',
-            position: 'absolute',
-            top: '4px',
-            left: slid ? '190px' : '4px',
-            zIndex: 3,
-            transition: 'left 0.4s ease-in-out, background 0.3s ease-in-out',
-            boxShadow: '0 4px 10px rgba(255,255,255,0.4)',
-          }} />
+          <div
+            ref={thumbRef}
+            style={{
+              width: '44px',
+              height: '44px',
+              borderRadius: '50%',
+              background: '#fff',
+              position: 'absolute',
+              top: '4px',
+              left: `${4 + sliderX}px`,
+              zIndex: 3,
+              transition: dragging ? 'none' : 'left 0.4s cubic-bezier(0.4,0,0.2,1)',
+              boxShadow: '0 4px 10px rgba(255,255,255,0.4)',
+              touchAction: 'none',
+              cursor: dragging ? 'grabbing' : 'grab',
+            }}
+            onMouseDown={handleDragStart}
+            onTouchStart={handleDragStart}
+          />
         </div>
       </div>
 
