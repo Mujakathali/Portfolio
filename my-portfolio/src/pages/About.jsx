@@ -7,6 +7,7 @@ const About = () => {
   const [showImg, setShowImg] = useState(false);
   const [showMujakath, setShowMujakath] = useState(false);
   const [showAli, setShowAli] = useState(false);
+  const [showSkills, setShowSkills] = useState(false);
   const aboutRef = useRef(null);
   const location = useLocation();
 
@@ -28,10 +29,12 @@ const About = () => {
           setShowImg(true);
           setShowMujakath(true);
           setShowAli(true);
+          setShowSkills(true);
         } else {
           setShowImg(false);
           setShowMujakath(false);
           setShowAli(false);
+          setShowSkills(false);
         }
       },
       { threshold: 0.5 }
@@ -71,8 +74,9 @@ const About = () => {
       style={{
         position: 'relative',
         width: '100%',
-        height: '728px',
+        minHeight: '650px',
         paddingTop: '98px',
+        paddingBottom: '1px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-start',
@@ -193,7 +197,7 @@ const About = () => {
         }}
       />
       {/* Skills/tags */}
-      <div className="about-skillset" style={{
+      <div className={`about-skillset${showSkills ? ' slide-in-right' : ''}`} style={{
         display: 'flex',
         justifyContent: 'center',
         gap: 48,
@@ -208,9 +212,34 @@ const About = () => {
         <span style={{ color: '#fff', fontWeight: 500, fontSize: 18, opacity: 0.8 }}>Problem solver</span>
         <span style={{ color: '#fff', fontWeight: 500, fontSize: 18, opacity: 0.8 }}>Tech with Empathy</span>
       </div>
-      <div>
-        hello</div>
+
       <style>{`
+        @keyframes popUpFromBottom {
+          0% {
+            opacity: 0;
+            transform: translateY(100px) scale(0.95);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        .pop-up {
+          animation: popUpFromBottom 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+        @keyframes slideInRight {
+          0% {
+            opacity: 0;
+            transform: translateX(100px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        .slide-in-right {
+          animation: slideInRight 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
         @media (max-width: 1025px) {
           .about-hero-profile-img {
             position: static !important;
@@ -243,7 +272,7 @@ const About = () => {
             max-width: 98vw !important;
             margin-right: 0 !important;
             gap: 8px !important;
-            margin-bottom: 210px;
+            margin-bottom: 200px;
             padding-left: 60px;
           }
           .about-skillset span {
@@ -266,9 +295,9 @@ const About = () => {
         .about-hero-profile-img {
             position: static !important;
             display: block !important;
-            margin: 242px -312px 0 auto !important;
+            margin: 190px -312px 0 auto !important;
             
-            width: 400px !important;
+            width: 350px !important;
             height: 450px !important;
             right: unset !important;
             left: 20px !important;
@@ -283,7 +312,7 @@ const About = () => {
             margin-right: 0 !important;
             gap: 8px !important;
             margin-bottom:210px;
-            padding-left:60px;
+            padding-left:0px;
           }
           .about-skillset span {
             font-size: 13px !important;
