@@ -2,11 +2,7 @@ import React from 'react';
 import StarBackground from '../components/Starb';
 
 const achievements = [
-  {
-    description: "Winner of ML-Quest Hackathon at Guraisoni College of Engineering, Nagpur.",
-    icon: "🤖", // AI/ML related
-    year: "2023"
-  },
+ 
   {
     description: "Top 1% Rank out of 600 participants in a national-level coding contest at Sri Rama Krishna College of Engineering & Technology.",
     icon: "💻", // Coding related
@@ -16,7 +12,12 @@ const achievements = [
     description: "Runner-Up in Tech Quest (Data Analytics - Designing Dashboard) at PSG College of Technology.",
     icon: "📊", // Analytics related
     year: "2022"
-  }
+  },
+  {
+    description: "Winner of ML-Quest Hackathon at Guraisoni College of Engineering, Nagpur. Developed an innovative machine learning solution that outperformed competing teams.",
+    icon: "🤖", // AI/ML related
+    year: "2023"
+  },
 ];
 
 const Achievement = () => {

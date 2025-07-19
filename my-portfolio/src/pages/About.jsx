@@ -142,7 +142,7 @@ const About = () => {
         }}>
           {/* Animated name left/right */}
           <span
-            className={`about-hero-mujakath${showMujakath ? ' slide-in-left' : ''}`}
+            className={`about-hero-name about-hero-mujakath${showMujakath ? ' slide-in-left' : ''}`}
             style={{
               position: 'absolute',
               left: 0,
@@ -193,13 +193,15 @@ const About = () => {
         }}
       />
       {/* Skills/tags */}
-      <div style={{
+      <div className="about-skillset" style={{
         display: 'flex',
         justifyContent: 'center',
         gap: 48,
         marginTop: -90,
         marginLeft: 90,
         pointerEvents: 'auto',
+        width: '100%',
+        maxWidth: '600px',
       }}>
         <span style={{ color: '#fff', fontWeight: 500, fontSize: 18, opacity: 0.8 }}>ML-Engineer</span>
         <span style={{ color: '#fff', fontWeight: 500, fontSize: 18, opacity: 0.8 }}>Front-end Developer</span>
@@ -208,6 +210,99 @@ const About = () => {
       </div>
       <div>
         hello</div>
+      <style>{`
+        @media (max-width: 1025px) {
+          .about-hero-profile-img {
+            position: static !important;
+            display: block !important;
+            margin: 242px -432px 0 auto !important;
+            
+            width: 220px !important;
+            height: 290px !important;
+            right: unset !important;
+            left: 20px !important;
+            bottom: unset !important;
+            transform: none !important;
+            z-index: 4;
+          }
+          .about-skillset {
+            justify-content: center !important;
+            align-items: center !important;
+            margin-left: 0 !important;
+            gap: 24px !important;
+            flex-wrap: wrap !important;
+            max-width: 600px !important;
+            width: 100% !important;
+            margin-right:180px;
+          }
+        }
+        @media (max-width: 600px) {
+          .about-skillset {
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            align-items: center !important;
+            gap: 12px !important;
+            margin-top: 0px !important;
+            max-width: 95vw !important;
+          }
+          .about-hero-profile-img {
+            position: static !important;
+            display: block !important;
+            margin: 242px -532px 0 auto !important;
+            width: 220px !important;
+            height: 450px !important;
+            right: unset !important;
+            left: 20px !important;
+            bottom: unset !important;
+            transform: none !important;
+            z-index: 4;
+          }
+        }
+        @media (max-width: 400px) {
+        .about-hero-profile-img {
+            position: static !important;
+            display: block !important;
+            margin: 242px -312px 0 auto !important;
+            
+            width: 220px !important;
+            height: 450px !important;
+            right: unset !important;
+            left: 20px !important;
+            bottom: unset !important;
+            transform: none !important;
+            z-index: 4;
+          }
+          .about-skillset {
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            max-width: 98vw !important;
+            margin-right: 0 !important;
+            gap: 8px !important;
+            margin-bottom:240px;
+            padding-left:60px;
+          }
+          .about-skillset span {
+            font-size: 13px !important;
+          }
+        }
+        .about-hero-name {
+          max-width: 90vw;
+          overflow-wrap: break-word;
+          display: block;
+        }
+        @media (max-width: 600px) {
+          .about-hero-name {
+            max-width: 95vw;
+            padding-left: 0 !important;
+            font-size: 2.2rem !important;
+            text-align: center !important;
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 auto !important;
+            position: static !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };
