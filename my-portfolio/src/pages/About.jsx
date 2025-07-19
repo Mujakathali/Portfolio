@@ -240,15 +240,19 @@ const About = () => {
           .about-skillset {
             flex-direction: row !important;
             flex-wrap: wrap !important;
-            align-items: center !important;
-            gap: 12px !important;
-            margin-top: 0px !important;
-            max-width: 95vw !important;
+            max-width: 98vw !important;
+            margin-right: 0 !important;
+            gap: 8px !important;
+            margin-bottom: 210px;
+            padding-left: 60px;
+          }
+          .about-skillset span {
+            font-size: 13px !important;
           }
           .about-hero-profile-img {
             position: static !important;
             display: block !important;
-            margin: 242px -532px 0 auto !important;
+            margin: 242px -332px 0 auto !important;
             width: 220px !important;
             height: 450px !important;
             right: unset !important;
@@ -278,7 +282,7 @@ const About = () => {
             max-width: 98vw !important;
             margin-right: 0 !important;
             gap: 8px !important;
-            margin-bottom:240px;
+            margin-bottom:210px;
             padding-left:60px;
           }
           .about-skillset span {
