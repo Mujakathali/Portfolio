@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaGithub, FaInstagram, FaLinkedin, FaBars } from 'react-icons/fa';
+import { FaBars, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import logo from '../assets/image.png';
 import './Navbar.css';
 
@@ -92,6 +92,17 @@ const Navbar = () => {
                   {item.label}
                 </a>
               ))}
+              <div className="mobile-social-icons" style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                gap: '1.5rem',
+                marginTop: '2rem',
+              }}>
+                <a href="https://instagram.com" className="navbar-social"><FaInstagram /></a>
+                <a href="https://github.com/Mujakathali" className="navbar-social"><FaGithub /></a>
+                <a href="https://www.linkedin.com/in/mujakath-ali-b48125256/" className="navbar-social"><FaLinkedin /></a>
+              </div>
             </div>
           )
         )}

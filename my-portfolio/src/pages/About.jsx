@@ -312,7 +312,7 @@ const About = () => {
             margin-right: 0 !important;
             gap: 8px !important;
             margin-bottom:210px;
-            padding-left:0px;
+            padding-right:90px;
           }
           .about-skillset span {
             font-size: 13px !important;

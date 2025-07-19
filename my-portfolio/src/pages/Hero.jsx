@@ -385,6 +385,7 @@ const Hero = () => {
             .slide-button {
               width: 200px !important;
               height: 46px !important;
+              top:3px;
             }
 
             .slide-button .gradient-shimmer-text {
@@ -397,6 +398,7 @@ const Hero = () => {
               height: 40px !important;
               top: 3px !important;
               left: 3px !important;
+            
             }
           }
 
