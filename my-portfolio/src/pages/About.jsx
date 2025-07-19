@@ -268,7 +268,7 @@ const About = () => {
             display: block !important;
             margin: 242px -312px 0 auto !important;
             
-            width: 220px !important;
+            width: 400px !important;
             height: 450px !important;
             right: unset !important;
             left: 20px !important;
